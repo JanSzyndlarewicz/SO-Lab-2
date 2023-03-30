@@ -8,6 +8,7 @@ public abstract class Algorithm {
      int currentTime = 0;
      int distanceTraveled = 0;
 
+
     void doAlgorithm(ArrayList<Request> requests) {}
 
     String getAlgorithmName() {
