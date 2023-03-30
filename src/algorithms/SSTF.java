@@ -4,7 +4,7 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public class SSTF extends Algorithm{
+public class SSTF extends StaticAlgorithm{
 
     public SSTF(){
 
@@ -15,10 +15,18 @@ public class SSTF extends Algorithm{
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
         int requestCounter = 0;
 
         while (requestCounter<requests.size()){
+
+            Request.priorityHandler(requests, this, realTimeAlgorithm);
+
+            requestCounter = 0;
+
+            for (Request request: requests)
+                if(request.isDone()) requestCounter++;
+
             Request request = pickRequestWithTheShortestDistance(requests, currentTime, currentPosition);
 
             if(request != null){

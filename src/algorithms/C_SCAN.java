@@ -4,22 +4,27 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public class C_SCAN extends Algorithm{
+public class C_SCAN extends StaticAlgorithm{
 
-    public C_SCAN(){
-
-    }
+    public C_SCAN(){}
 
     public C_SCAN(int currentPosition, int currentTime, int distanceTraveled) {
         super(currentPosition, currentTime, distanceTraveled);
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
         int requestCounter = 0;
         int RANGE = 10;
 
         while (requestCounter < requests.size()){
+            Request.priorityHandler(requests, this, realTimeAlgorithm);
+
+            requestCounter = 0;
+
+            for (Request request: requests)
+                if(request.isDone()) requestCounter++;
+
             Request request = findClosestOnTheRight(requests, currentTime, currentPosition);
 
             if(request != null){

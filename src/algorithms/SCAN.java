@@ -4,7 +4,7 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public class SCAN extends Algorithm{
+public class SCAN extends StaticAlgorithm{
 
     public SCAN(){
 
@@ -15,12 +15,19 @@ public class SCAN extends Algorithm{
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
         int requestCounter = 0;
         int RANGE = 10;
         int direction = 1;
 
         while (requestCounter < requests.size()){
+            Request.priorityHandler(requests, this, realTimeAlgorithm);
+
+            requestCounter = 0;
+
+            for (Request request: requests)
+                if(request.isDone()) requestCounter++;
+
             Request request = findClosestOnTheSameDirection(requests, currentTime, currentPosition, direction);
 
             if(request != null){
@@ -35,9 +42,7 @@ public class SCAN extends Algorithm{
                     currentPosition += direction;
                     currentPosition += direction;
                 }
-
             }
-
         }
     }
 

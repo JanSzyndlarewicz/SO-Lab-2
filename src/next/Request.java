@@ -1,7 +1,11 @@
 package next;
 
 import algorithms.Algorithm;
+import algorithms.RealTimeAlgorithm;
 import algorithms.SSTF;
+import algorithms.StaticAlgorithm;
+
+import java.util.ArrayList;
 
 public class Request{
 
@@ -40,6 +44,22 @@ public class Request{
         request.setWaitingTime(algorithm.getCurrentTime() - request.getENTRY_TIME());
         request.setExitTime(algorithm.getCurrentTime());
         request.setDone(true);
+    }
+
+    public static boolean isPriority(ArrayList<Request> requests, int currentTime){
+        for (Request request: requests)
+            if(request.isPRIORITY() && !request.isDone() && request.getENTRY_TIME() <= currentTime) return true;
+
+        return false;
+    }
+
+    public static void priorityHandler(ArrayList<Request> requests, StaticAlgorithm staticAlgorithm, RealTimeAlgorithm realTimeAlgorithm){
+        if(Request.isPriority(requests, staticAlgorithm.getCurrentTime())){
+            realTimeAlgorithm.doAlgorithm(requests, staticAlgorithm.getCurrentPosition(), staticAlgorithm.getCurrentTime(), staticAlgorithm.getDistanceTraveled());
+            staticAlgorithm.setCurrentPosition(realTimeAlgorithm.getCurrentPosition());
+            staticAlgorithm.setCurrentTime(realTimeAlgorithm.getCurrentTime());
+            staticAlgorithm.setDistanceTraveled(realTimeAlgorithm.getDistanceTraveled());
+        }
     }
 
 

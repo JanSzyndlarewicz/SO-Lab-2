@@ -17,7 +17,8 @@ public abstract class Algorithm {
         this.distanceTraveled = distanceTraveled;
     }
 
-    void doAlgorithm(ArrayList<Request> requests) {}
+    //void doAlgorithm(ArrayList<Request> requests) {}
+
 
     String getAlgorithmName() {
         return null;

@@ -4,7 +4,7 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public class EDF extends Algorithm{
+public class EDF extends RealTimeAlgorithm {
 
     public EDF(){}
 
@@ -13,7 +13,10 @@ public class EDF extends Algorithm{
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests) {
+    public void doAlgorithm(ArrayList<Request> requests, int currentPosition, int currentTime, int distanceTraveled) {
+        this.currentPosition = currentPosition;
+        this.currentTime = currentTime;
+        this.distanceTraveled = distanceTraveled;
         Request request;
 
         do{

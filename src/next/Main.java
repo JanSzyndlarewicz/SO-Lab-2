@@ -14,7 +14,8 @@ public class Main {
         requests.add(new Request(false, 3, 5, 0));
 
         FCFS Fcfs = new FCFS();
-        Fcfs.doAlgorithm(requests);
+        EDF edf = new EDF();
+        Fcfs.doAlgorithm(requests, edf);
 
         for (Request request: requests) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
@@ -24,7 +25,7 @@ public class Main {
 
         System.out.println();
         SSTF sstf = new SSTF();
-        sstf.doAlgorithm(requests);
+        sstf.doAlgorithm(requests, edf);
         for (Request request: requests) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }
@@ -33,7 +34,7 @@ public class Main {
 
         System.out.println();
         C_SCAN CScan = new C_SCAN();
-        CScan.doAlgorithm(requests);
+        CScan.doAlgorithm(requests, edf);
         for (Request request: requests) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }
@@ -42,7 +43,7 @@ public class Main {
 
         System.out.println();
         SCAN scan = new SCAN();
-        scan.doAlgorithm(requests);
+        scan.doAlgorithm(requests, edf);
         for (Request request: requests) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }
@@ -55,8 +56,8 @@ public class Main {
         requests2.add(new Request(true, 3, 0, 4));
 
         System.out.println();
-        EDF edf = new EDF();
-        edf.doAlgorithm(requests2);
+        //EDF edf = new EDF();
+        //edf.doAlgorithm(requests2);
         for (Request request: requests2) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }

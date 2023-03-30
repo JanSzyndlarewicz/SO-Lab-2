@@ -4,39 +4,17 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public abstract class RealTimeAlgorithm{
-    int currentPosition = 0;
-    int currentTime = 0;
-    int distanceTraveled = 0;
+public abstract class RealTimeAlgorithm extends Algorithm{
 
-    void doAlgorithm(ArrayList<Request> requests, int currentTime, int currentPosition, int distanceTraveled) {
+
+    public RealTimeAlgorithm(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
     }
 
-    String getAlgorithmName() {
-        return null;
+    public RealTimeAlgorithm() {
     }
 
-    public int getCurrentPosition() {
-        return currentPosition;
-    }
+    public abstract void doAlgorithm(ArrayList<Request> requests, int currentPosition, int currentTime, int distanceTraveled);
 
-    public void setCurrentPosition(int currentPosition) {
-        this.currentPosition = currentPosition;
-    }
 
-    public int getCurrentTime() {
-        return currentTime;
-    }
-
-    public void setCurrentTime(int currentTime) {
-        this.currentTime = currentTime;
-    }
-
-    public int getDistanceTraveled() {
-        return distanceTraveled;
-    }
-
-    public void setDistanceTraveled(int distanceTraveled) {
-        this.distanceTraveled = distanceTraveled;
-    }
 }
