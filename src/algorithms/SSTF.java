@@ -1,47 +1,44 @@
 package algorithms;
 
-import next.Main;
 import next.Request;
 
 import java.util.ArrayList;
 
-public class SSTF implements Algorithm{
+public class SSTF extends Algorithm{
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
-        int currentPosition = 0;
-        int distanceTraveled = 0;
         int requestCounter = 0;
 
         while (requestCounter<requests.size()){
-            Request request = pickRequestWithTheShortestDistance(requests, distanceTraveled, currentPosition);
+            Request request = pickRequestWithTheShortestDistance(requests, currentTime, currentPosition);
 
-            //System.out.println(request);
-
-            distanceTraveled += Math.abs(currentPosition-request.getDISC_POSITION());
-            currentPosition = request.getDISC_POSITION();
-            request.setWaitingTime(distanceTraveled - request.getENTRY_TIME());
-            request.setExitTime(distanceTraveled);
-            request.setDone(true);
-            requestCounter++;
+            if(request != null){
+                Request.requestStatsHandler(this, request);
+                //System.out.println("Time: " + currentTime + ", position: " + currentPosition + ", distance: " + distanceTraveled + ", REQUEST: " + request);
+                requestCounter++;
+            }
+            else {
+                currentTime++;
+            }
         }
-
-
     }
 
-    private static Request pickRequestWithTheShortestDistance(ArrayList<Request> requests, int time, int currentPosition){
+    private static Request pickRequestWithTheShortestDistance(ArrayList<Request> requests, int currentTime, int currentPosition){
         Request bestRequestToPick = null;
 
         for (Request request : requests) {
-            if((bestRequestToPick == null && !request.isDone()) ||
+            if((bestRequestToPick == null && !request.isDone() && request.getENTRY_TIME()<=currentTime) ||
                     ((bestRequestToPick != null &&
                             !request.isDone() &&
-                            Math.abs(request.getDISC_POSITION()-time)<Math.abs(bestRequestToPick.getDISC_POSITION()-time) &&
-                            request.getENTRY_TIME()<=currentPosition)))
+                            Math.abs(request.getDISC_POSITION()-currentPosition)<Math.abs(bestRequestToPick.getDISC_POSITION()-currentPosition) &&
+                            request.getENTRY_TIME()<=currentTime)))
                 bestRequestToPick = request;
         }
 
         return bestRequestToPick;
     }
+
 
     @Override
     public String getAlgorithmName() {

@@ -1,5 +1,8 @@
 package next;
 
+import algorithms.Algorithm;
+import algorithms.SSTF;
+
 public class Request{
 
     private static int IdCounter = 0;
@@ -26,6 +29,17 @@ public class Request{
         this.isDone = false;
 
         IdCounter++;
+    }
+
+    public static void requestStatsHandler(Algorithm algorithm, Request request){
+
+        algorithm.setCurrentTime(algorithm.getCurrentTime() + Math.abs(algorithm.getCurrentPosition()-request.getDISC_POSITION()));
+        algorithm.setDistanceTraveled(algorithm.getDistanceTraveled() + Math.abs(algorithm.getCurrentPosition()-request.getDISC_POSITION()));
+        algorithm.setCurrentPosition(request.getDISC_POSITION());
+
+        request.setWaitingTime(algorithm.getCurrentTime() - request.getENTRY_TIME());
+        request.setExitTime(algorithm.getCurrentTime());
+        request.setDone(true);
     }
 
 
@@ -80,6 +94,8 @@ public class Request{
     public void setWaitingTime(int waitingTime) {
         this.waitingTime = waitingTime;
     }
+
+
 
     @Override
     public String toString() {
