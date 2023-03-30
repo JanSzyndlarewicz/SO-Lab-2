@@ -1,9 +1,6 @@
 package next;
 
-import algorithms.FCFS;
-import algorithms.C_SCAN;
-import algorithms.SCAN;
-import algorithms.SSTF;
+import algorithms.*;
 
 import java.util.ArrayList;
 
@@ -47,6 +44,20 @@ public class Main {
         SCAN scan = new SCAN();
         scan.doAlgorithm(requests);
         for (Request request: requests) {
+            System.out.println(request.getExitTime() + " " + request.getWaitingTime());
+        }
+
+        ArrayList<Request> requests2 = new ArrayList<>();
+        requests2.add(new Request(true, 10, 0, 3));
+        requests2.add(new Request(true, 5, 0, 2));
+        requests2.add(new Request(true, 1, 0, 1));
+        requests2.add(new Request(true, 8, 0, 5));
+        requests2.add(new Request(true, 3, 0, 4));
+
+        System.out.println();
+        EDF edf = new EDF();
+        edf.doAlgorithm(requests2);
+        for (Request request: requests2) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }
     }

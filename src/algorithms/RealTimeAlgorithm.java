@@ -1,14 +1,16 @@
 package algorithms;
 
 import next.Request;
+
 import java.util.ArrayList;
 
-public abstract class Algorithm {
-     int currentPosition = 0;
-     int currentTime = 0;
-     int distanceTraveled = 0;
+public abstract class RealTimeAlgorithm{
+    int currentPosition = 0;
+    int currentTime = 0;
+    int distanceTraveled = 0;
 
-    void doAlgorithm(ArrayList<Request> requests) {}
+    void doAlgorithm(ArrayList<Request> requests, int currentTime, int currentPosition, int distanceTraveled) {
+    }
 
     String getAlgorithmName() {
         return null;
