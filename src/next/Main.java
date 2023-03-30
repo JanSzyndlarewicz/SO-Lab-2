@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Request> requests = new ArrayList<>();
-        requests.add(new Request(false, 3, 0, 0));
-        requests.add(new Request(false, 5, 1, 0));
-        requests.add(new Request(false, 1, 3, 0));
         requests.add(new Request(false, 8, 3, 0));
-        requests.add(new Request(false, 3, 23, 0));
+        requests.add(new Request(true, 3, 3, 10));
+        requests.add(new Request(false, 4, 4, 0));
+        requests.add(new Request(true, 6, 4, 5));
+        requests.add(new Request(false, 3, 5, 0));
 
         FCFS Fcfs = new FCFS();
         Fcfs.doAlgorithm(requests);

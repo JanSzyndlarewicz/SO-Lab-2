@@ -6,6 +6,14 @@ import java.util.ArrayList;
 
 public class C_SCAN extends Algorithm{
 
+    public C_SCAN(){
+
+    }
+
+    public C_SCAN(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
+    }
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         int requestCounter = 0;

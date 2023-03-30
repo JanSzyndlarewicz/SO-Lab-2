@@ -6,17 +6,24 @@ import java.util.ArrayList;
 
 public class EDF extends Algorithm{
 
+    public EDF(){}
+
+    public EDF(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
+    }
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         Request request;
 
         do{
             request = pickEarliestDeadline(requests, currentTime);
-
+            System.out.println(request);
             if(request != null){
                 Request.requestStatsHandler(this, request);
                 //System.out.println("Time: " + currentTime + ", position: " + currentPosition + ", distance: " + distanceTraveled + ", REQUEST: " + request);
             }
+            System.out.println(request);
 
         }while (request != null);
     }

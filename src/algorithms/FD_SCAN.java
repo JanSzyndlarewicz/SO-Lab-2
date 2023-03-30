@@ -6,6 +6,14 @@ import java.util.ArrayList;
 
 public class FD_SCAN extends Algorithm{
 
+    public FD_SCAN(){
+
+    }
+
+    public FD_SCAN(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
+    }
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         Request request;

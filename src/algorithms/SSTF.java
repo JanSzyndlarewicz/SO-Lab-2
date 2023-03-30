@@ -6,6 +6,14 @@ import java.util.ArrayList;
 
 public class SSTF extends Algorithm{
 
+    public SSTF(){
+
+    }
+
+    public SSTF(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
+    }
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         int requestCounter = 0;

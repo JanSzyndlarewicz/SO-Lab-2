@@ -5,6 +5,15 @@ import next.Request;
 import java.util.ArrayList;
 
 public class SCAN extends Algorithm{
+
+    public SCAN(){
+
+    }
+
+    public SCAN(int currentPosition, int currentTime, int distanceTraveled) {
+        super(currentPosition, currentTime, distanceTraveled);
+    }
+
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         int requestCounter = 0;

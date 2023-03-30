@@ -8,6 +8,14 @@ public abstract class Algorithm {
      int currentTime = 0;
      int distanceTraveled = 0;
 
+    public Algorithm() {
+    }
+
+    public Algorithm(int currentPosition, int currentTime, int distanceTraveled) {
+        this.currentPosition = currentPosition;
+        this.currentTime = currentTime;
+        this.distanceTraveled = distanceTraveled;
+    }
 
     void doAlgorithm(ArrayList<Request> requests) {}
 
