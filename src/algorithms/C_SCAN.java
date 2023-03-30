@@ -26,7 +26,6 @@ public class C_SCAN extends Algorithm{
                     currentTime += RANGE-1;
                 }
             }
-
         }
     }
 

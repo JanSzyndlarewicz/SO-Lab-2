@@ -4,14 +4,14 @@ import next.Request;
 
 import java.util.ArrayList;
 
-public class EDF extends Algorithm{
+public class FD_SCAN extends Algorithm{
 
     @Override
     public void doAlgorithm(ArrayList<Request> requests) {
         Request request;
 
         do{
-            request = pickEarliestDeadline(requests, currentTime);
+            request = pickEarliestDeadline(requests, currentTime, currentPosition);
 
             if(request != null){
                 Request.requestStatsHandler(this, request);
@@ -21,7 +21,7 @@ public class EDF extends Algorithm{
         }while (request != null);
     }
 
-    private static Request pickEarliestDeadline(ArrayList<Request> requests, int currentTime){
+    private static Request pickEarliestDeadline(ArrayList<Request> requests, int currentTime, int currentPosition){
         Request requestWithClosestDeadline = null;
 
         for (Request request: requests) {
@@ -42,6 +42,6 @@ public class EDF extends Algorithm{
 
     @Override
     public String getAlgorithmName() {
-        return "EDF";
+        return "FD-SCAN";
     }
 }
