@@ -2,6 +2,7 @@ package next;
 
 import algorithms.FCFS;
 import algorithms.C_SCAN;
+import algorithms.SCAN;
 import algorithms.SSTF;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class Main {
         requests.add(new Request(false, 5, 1, 0));
         requests.add(new Request(false, 1, 3, 0));
         requests.add(new Request(false, 8, 3, 0));
-        requests.add(new Request(false, 3, 24, 0));
+        requests.add(new Request(false, 3, 23, 0));
 
         FCFS Fcfs = new FCFS();
         Fcfs.doAlgorithm(requests);
@@ -36,6 +37,15 @@ public class Main {
         System.out.println();
         C_SCAN CScan = new C_SCAN();
         CScan.doAlgorithm(requests);
+        for (Request request: requests) {
+            System.out.println(request.getExitTime() + " " + request.getWaitingTime());
+        }
+
+        RequestLibrary.clear(requests);
+
+        System.out.println();
+        SCAN scan = new SCAN();
+        scan.doAlgorithm(requests);
         for (Request request: requests) {
             System.out.println(request.getExitTime() + " " + request.getWaitingTime());
         }
