@@ -1,3 +1,5 @@
+package next;
+
 public class Request{
 
     private static int IdCounter = 0;
@@ -8,6 +10,7 @@ public class Request{
     private final int DEADLINE;
     private int exitTime;
     private int waitingTime;
+    private boolean isDone;
 
     public Request(boolean PRIORITY,
                    int DISC_POSITION,
@@ -20,11 +23,19 @@ public class Request{
         this.DEADLINE = DEADLINE;
         this.exitTime = 0;
         this.waitingTime = 0;
+        this.isDone = false;
 
         IdCounter++;
     }
 
 
+    public boolean isDone() {
+        return isDone;
+    }
+
+    public void setDone(boolean done) {
+        isDone = done;
+    }
 
     public static int getIdCounter() {
         return IdCounter;
@@ -68,5 +79,19 @@ public class Request{
 
     public void setWaitingTime(int waitingTime) {
         this.waitingTime = waitingTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "ID=" + ID +
+                ", PRIORITY=" + PRIORITY +
+                ", DISC_POSITION=" + DISC_POSITION +
+                ", ENTRY_TIME=" + ENTRY_TIME +
+                ", DEADLINE=" + DEADLINE +
+                ", exitTime=" + exitTime +
+                ", waitingTime=" + waitingTime +
+                ", isDone=" + isDone +
+                '}';
     }
 }
