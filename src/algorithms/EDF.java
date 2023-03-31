@@ -20,13 +20,8 @@ public class EDF extends RealTimeAlgorithm {
         Request request;
 
         do{
-            request = pickEarliestDeadline(requests, currentTime);
-            System.out.println(request);
-            if(request != null){
-                Request.requestStatsHandler(this, request);
-                //System.out.println("Time: " + currentTime + ", position: " + currentPosition + ", distance: " + distanceTraveled + ", REQUEST: " + request);
-            }
-            System.out.println(request);
+            request = pickEarliestDeadline(requests, this.currentTime);
+            if(request != null) Request.requestStatsHandler(this, request);
 
         }while (request != null);
     }

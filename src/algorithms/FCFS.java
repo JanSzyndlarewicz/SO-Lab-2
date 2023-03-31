@@ -26,7 +26,6 @@ public class FCFS extends StaticAlgorithm {
                 Request.requestStatsHandler(this, request);
                 request.setDone(true);
             }
-
         }
     }
 

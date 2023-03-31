@@ -1,7 +1,6 @@
 package algorithms;
 
-import next.Request;
-import java.util.ArrayList;
+
 
 public abstract class Algorithm {
      int currentPosition = 0;
@@ -16,8 +15,6 @@ public abstract class Algorithm {
         this.currentTime = currentTime;
         this.distanceTraveled = distanceTraveled;
     }
-
-    //void doAlgorithm(ArrayList<Request> requests) {}
 
 
     String getAlgorithmName() {
