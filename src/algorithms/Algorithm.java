@@ -16,6 +16,12 @@ public abstract class Algorithm {
         this.distanceTraveled = distanceTraveled;
     }
 
+    public void clearParameters(){
+        currentPosition = 0;
+        currentTime = 0;
+        distanceTraveled = 0;
+    }
+
 
     String getAlgorithmName() {
         return null;

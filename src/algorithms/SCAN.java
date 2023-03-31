@@ -17,7 +17,7 @@ public class SCAN extends StaticAlgorithm{
     @Override
     public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
         int requestCounter = 0;
-        int RANGE = 10;
+        int RANGE = 100;
         int direction = 1;
 
         while (requestCounter < requests.size()){

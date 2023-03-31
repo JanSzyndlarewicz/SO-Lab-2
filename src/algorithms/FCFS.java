@@ -24,7 +24,6 @@ public class FCFS extends StaticAlgorithm {
                     currentTime = request.getENTRY_TIME();
 
                 Request.requestStatsHandler(this, request);
-                request.setDone(true);
             }
         }
     }

@@ -15,7 +15,7 @@ public class C_SCAN extends StaticAlgorithm{
     @Override
     public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
         int requestCounter = 0;
-        int RANGE = 10;
+        int RANGE = 100;
 
         while (requestCounter < requests.size()){
             Request.priorityHandler(requests, this, realTimeAlgorithm);

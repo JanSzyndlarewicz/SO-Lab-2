@@ -48,7 +48,10 @@ public class Request{
 
     public static boolean isPriority(ArrayList<Request> requests, int currentTime){
         for (Request request: requests)
-            if(request.isPRIORITY() && !request.isDone() && request.getENTRY_TIME() <= currentTime) return true;
+            if(request.isPRIORITY() && !request.isDone() && request.getENTRY_TIME() <= currentTime){
+                //System.out.println("true");
+                return true;
+            }
 
         return false;
     }

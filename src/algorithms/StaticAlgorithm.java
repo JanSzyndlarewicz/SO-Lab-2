@@ -14,4 +14,8 @@ public abstract class StaticAlgorithm extends Algorithm{
     }
 
     public abstract void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm);
+
+    public abstract String getAlgorithmName();
+
+
 }

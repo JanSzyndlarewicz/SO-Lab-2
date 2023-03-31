@@ -1,5 +1,7 @@
 package next;
 
+import algorithms.*;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -54,5 +56,43 @@ public class Generator {
         Request tmp = requests.get(request1);
         requests.set(request1, requests.get(request2));
         requests.set(request2, tmp);
+    }
+
+    public static void printStats(ArrayList<Request> requests){
+        double avgExitTime = 0;
+        double avgWaitingTime = 0;
+
+        for (Request request: requests) {
+            avgExitTime += request.getExitTime();
+            avgWaitingTime += request.getWaitingTime();
+        }
+
+        avgExitTime /= requests.size();
+        avgWaitingTime /= requests.size();
+
+        System.out.println( "Avg Exit Time: "+ avgExitTime + ", Avg Waiting Time: " + avgWaitingTime);
+    }
+
+    public static void startAllAlgorithms(ArrayList<Request> requests){
+        StaticAlgorithm[] staticAlgorithms = new StaticAlgorithm[4];
+        staticAlgorithms[0] = new FCFS();
+        staticAlgorithms[1] = new SSTF();
+        staticAlgorithms[2] = new C_SCAN();
+        staticAlgorithms[3] = new SCAN();
+
+        RealTimeAlgorithm[] realTimeAlgorithms = new RealTimeAlgorithm[2];
+        realTimeAlgorithms[0] = new EDF();
+        realTimeAlgorithms[1] = new FD_SCAN();
+
+        for (StaticAlgorithm staticAlgorithm : staticAlgorithms) {
+            for (RealTimeAlgorithm realTimeAlgorithm : realTimeAlgorithms) {
+                staticAlgorithm.doAlgorithm(requests, realTimeAlgorithm);
+                System.out.print(staticAlgorithm.getAlgorithmName() + " & " + realTimeAlgorithm.getAlgorithmName() + " -> ");
+                printStats(requests);
+                RequestLibrary.clear(requests);
+                staticAlgorithm.clearParameters();
+
+            }
+        }
     }
 }

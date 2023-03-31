@@ -16,5 +16,9 @@ public abstract class RealTimeAlgorithm extends Algorithm{
 
     public abstract void doAlgorithm(ArrayList<Request> requests, int currentPosition, int currentTime, int distanceTraveled);
 
+    public abstract String getAlgorithmName();
+
+
+
 
 }
