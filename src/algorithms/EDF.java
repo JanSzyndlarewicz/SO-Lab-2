@@ -1,6 +1,6 @@
 package algorithms;
 
-import next.Request;
+import requests.Request;
 
 import java.util.ArrayList;
 

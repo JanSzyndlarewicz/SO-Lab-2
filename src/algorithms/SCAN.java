@@ -1,23 +1,20 @@
 package algorithms;
 
-import next.Request;
+import requests.Request;
 
 import java.util.ArrayList;
 
 public class SCAN extends StaticAlgorithm{
 
-    public SCAN(){
-
-    }
+    public SCAN(){}
 
     public SCAN(int currentPosition, int currentTime, int distanceTraveled) {
         super(currentPosition, currentTime, distanceTraveled);
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range) {
         int requestCounter = 0;
-        int RANGE = 100;
         int direction = 1;
 
         while (requestCounter < requests.size()){
@@ -37,7 +34,7 @@ public class SCAN extends StaticAlgorithm{
             else {
                 currentTime++;
                 currentPosition += direction;
-                if(currentPosition > RANGE || currentPosition < 0){
+                if(currentPosition > range || currentPosition < 0){
                     direction *= -1;
                     currentPosition += direction;
                     currentPosition += direction;

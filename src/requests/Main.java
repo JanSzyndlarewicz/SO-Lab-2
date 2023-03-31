@@ -1,6 +1,4 @@
-package next;
-
-import algorithms.*;
+package requests;
 
 import java.util.ArrayList;
 
@@ -18,7 +16,7 @@ public class Main {
         Generator.sortByEntryTime(requests);
         Generator.printAllRequests(requests);
 
-        Generator.startAllAlgorithms(requests);
+        Generator.startAllAlgorithms(requests, 100);
 
     }
 }

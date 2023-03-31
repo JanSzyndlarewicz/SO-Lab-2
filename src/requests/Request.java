@@ -1,8 +1,7 @@
-package next;
+package requests;
 
 import algorithms.Algorithm;
 import algorithms.RealTimeAlgorithm;
-import algorithms.SSTF;
 import algorithms.StaticAlgorithm;
 
 import java.util.ArrayList;
@@ -62,6 +61,14 @@ public class Request{
             staticAlgorithm.setCurrentPosition(realTimeAlgorithm.getCurrentPosition());
             staticAlgorithm.setCurrentTime(realTimeAlgorithm.getCurrentTime());
             staticAlgorithm.setDistanceTraveled(realTimeAlgorithm.getDistanceTraveled());
+        }
+    }
+
+    public static void clear(ArrayList<Request> requests){
+        for (Request request : requests) {
+            request.setExitTime(0);
+            request.setWaitingTime(0);
+            request.setDone(false);
         }
     }
 

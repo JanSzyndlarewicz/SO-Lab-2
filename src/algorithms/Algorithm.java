@@ -1,14 +1,11 @@
 package algorithms;
 
-
-
 public abstract class Algorithm {
      int currentPosition = 0;
      int currentTime = 0;
      int distanceTraveled = 0;
 
-    public Algorithm() {
-    }
+    public Algorithm() {}
 
     public Algorithm(int currentPosition, int currentTime, int distanceTraveled) {
         this.currentPosition = currentPosition;
@@ -23,7 +20,7 @@ public abstract class Algorithm {
     }
 
 
-    String getAlgorithmName() {
+    public String getAlgorithmName() {
         return null;
     }
 

@@ -1,21 +1,19 @@
 package algorithms;
 
-import next.Request;
+import requests.Request;
 
 import java.util.ArrayList;
 
 public class SSTF extends StaticAlgorithm{
 
-    public SSTF(){
-
-    }
+    public SSTF(){}
 
     public SSTF(int currentPosition, int currentTime, int distanceTraveled) {
         super(currentPosition, currentTime, distanceTraveled);
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range) {
         int requestCounter = 0;
 
         while (requestCounter<requests.size()){
@@ -31,7 +29,6 @@ public class SSTF extends StaticAlgorithm{
 
             if(request != null){
                 Request.requestStatsHandler(this, request);
-                //System.out.println("Time: " + currentTime + ", position: " + currentPosition + ", distance: " + distanceTraveled + ", REQUEST: " + request);
                 requestCounter++;
             }
             else {

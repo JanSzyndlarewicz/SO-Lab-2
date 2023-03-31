@@ -1,6 +1,6 @@
 package algorithms;
 
-import next.Request;
+import requests.Request;
 
 import java.util.ArrayList;
 
@@ -12,10 +12,10 @@ public class C_SCAN extends StaticAlgorithm{
         super(currentPosition, currentTime, distanceTraveled);
     }
 
+
     @Override
-    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range) {
         int requestCounter = 0;
-        int RANGE = 100;
 
         while (requestCounter < requests.size()){
             Request.priorityHandler(requests, this, realTimeAlgorithm);
@@ -34,9 +34,9 @@ public class C_SCAN extends StaticAlgorithm{
             else {
                 currentTime++;
                 currentPosition++;
-                if(currentPosition > RANGE){
+                if(currentPosition > range){
                     currentPosition = 0;
-                    currentTime += RANGE-1;
+                    currentTime += range -1;
                 }
             }
         }

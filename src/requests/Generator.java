@@ -1,4 +1,4 @@
-package next;
+package requests;
 
 import algorithms.*;
 
@@ -73,7 +73,7 @@ public class Generator {
         System.out.println( "Avg Exit Time: "+ avgExitTime + ", Avg Waiting Time: " + avgWaitingTime);
     }
 
-    public static void startAllAlgorithms(ArrayList<Request> requests){
+    public static void startAllAlgorithms(ArrayList<Request> requests, int range){
         StaticAlgorithm[] staticAlgorithms = new StaticAlgorithm[4];
         staticAlgorithms[0] = new FCFS();
         staticAlgorithms[1] = new SSTF();
@@ -86,12 +86,11 @@ public class Generator {
 
         for (StaticAlgorithm staticAlgorithm : staticAlgorithms) {
             for (RealTimeAlgorithm realTimeAlgorithm : realTimeAlgorithms) {
-                staticAlgorithm.doAlgorithm(requests, realTimeAlgorithm);
+                staticAlgorithm.doAlgorithm(requests, realTimeAlgorithm, range);
                 System.out.print(staticAlgorithm.getAlgorithmName() + " & " + realTimeAlgorithm.getAlgorithmName() + " -> ");
                 printStats(requests);
-                RequestLibrary.clear(requests);
+                Request.clear(requests);
                 staticAlgorithm.clearParameters();
-
             }
         }
     }

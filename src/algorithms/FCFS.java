@@ -1,6 +1,6 @@
 package algorithms;
 
-import next.Request;
+import requests.Request;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ public class FCFS extends StaticAlgorithm {
     }
 
     @Override
-    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm) {
+    public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range) {
 
         for (Request request: requests) {
 
