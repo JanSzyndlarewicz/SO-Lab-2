@@ -18,6 +18,7 @@ public class SCAN extends StaticAlgorithm{
         int direction = 1;
 
         while (requestCounter < requests.size()){
+
             Request.priorityHandler(requests, this, realTimeAlgorithm);
 
             requestCounter = 0;

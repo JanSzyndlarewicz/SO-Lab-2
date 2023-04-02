@@ -2,10 +2,11 @@ package requests;
 
 import algorithms.*;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Generator {
+public abstract class Generator {
 
     public static ArrayList<Request> generate(int timeLeftRange,
                                               int timeRightRange,
@@ -59,6 +60,7 @@ public class Generator {
     }
 
     public static void printStats(ArrayList<Request> requests){
+        final DecimalFormat df = new DecimalFormat("0.00");
         double avgExitTime = 0;
         double avgWaitingTime = 0;
 
@@ -70,7 +72,7 @@ public class Generator {
         avgExitTime /= requests.size();
         avgWaitingTime /= requests.size();
 
-        System.out.println( "Avg Exit Time: "+ avgExitTime + ", Avg Waiting Time: " + avgWaitingTime);
+        System.out.printf( "Avg Exit Time: " +  df.format(avgExitTime) + ", Avg Waiting Time: " + df.format(avgWaitingTime) + "\n");
     }
 
     public static void startAllAlgorithms(ArrayList<Request> requests, int range){

@@ -51,8 +51,10 @@ public class C_SCAN extends StaticAlgorithm{
                             !request.isDone() &&
                             request.getDISC_POSITION()-currentPosition >= 0 &&
                             request.getDISC_POSITION()-currentPosition<closestOnTheRight.getDISC_POSITION()-currentPosition &&
-                            request.getENTRY_TIME()<=currentTime)))
+                            request.getENTRY_TIME()<=currentTime))){
                 closestOnTheRight = request;
+            }
+
         }
 
         return closestOnTheRight;

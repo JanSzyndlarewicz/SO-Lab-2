@@ -43,12 +43,13 @@ public class Request{
         request.setWaitingTime(algorithm.getCurrentTime() - request.getENTRY_TIME());
         request.setExitTime(algorithm.getCurrentTime());
         request.setDone(true);
+
     }
 
     public static boolean isPriority(ArrayList<Request> requests, int currentTime){
         for (Request request: requests)
             if(request.isPRIORITY() && !request.isDone() && request.getENTRY_TIME() <= currentTime){
-                //System.out.println("true");
+
                 return true;
             }
 
