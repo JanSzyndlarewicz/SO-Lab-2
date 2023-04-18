@@ -12,7 +12,6 @@ public class C_SCAN extends StaticAlgorithm{
         super(currentPosition, currentTime, distanceTraveled);
     }
 
-
     @Override
     public void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range) {
         int requestCounter = 0;

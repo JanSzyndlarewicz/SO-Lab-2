@@ -12,7 +12,6 @@ public abstract class StaticAlgorithm extends Algorithm{
         super(currentPosition, currentTime, distanceTraveled);
     }
 
-    //public abstract void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm);
     public abstract void doAlgorithm(ArrayList<Request> requests, RealTimeAlgorithm realTimeAlgorithm, int range);
 
     public abstract String getAlgorithmName();
